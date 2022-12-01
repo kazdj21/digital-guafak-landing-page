@@ -67,6 +67,39 @@ html, body {
 
 }
 
+#contact-us {
+
+    margin-top: 20%; 
+    height: 60%;
+
+}
+
+#contact-us-box {
+
+    height: 100%; 
+    width: 50%; 
+    background-color:#6A0303; 
+    box-shadow: 2px 2px 2px black
+
+}
+
+#contact-us-header {
+
+    display: flex; 
+    justify-content:left; 
+    padding-top: 3%; 
+    padding-bottom: 3%;
+
+}
+
+.resp-menu-item {
+
+    font-size: 1.75rem; 
+    color: white; 
+    visibility: hidden;
+
+}
+
 div.card:hover {
 
     box-shadow: 5px 5px 5px gray;
@@ -78,4 +111,32 @@ a {
     text-decoration: none;
     color: white;
     
+}
+
+@media screen and (max-width: 1000px) {
+
+    #contact-us {
+
+        margin-top: 30%;
+
+    }
+
+    #contact-us-box {
+
+        width: 100%;
+
+    }
+
+    .main-menu-item {
+
+        display: none !important;
+
+    }
+
+    .resp-menu-item {
+
+        visibility: visible;
+
+    }
+
 }
