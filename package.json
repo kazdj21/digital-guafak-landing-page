@@ -1,0 +1,28 @@
+{
+  "name": "digital-guafak-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazdj21/digital-guafak-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kazdj21/digital-guafak-landing-page/issues"
+  },
+  "homepage": "https://github.com/kazdj21/digital-guafak-landing-page#readme",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "dompurify": "^2.4.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "jsdom": "^20.0.3",
+    "validator": "^13.7.0"
+  }
+}

@@ -1,0 +1,31 @@
+<div class="container-fluid mt-2">
+
+    <% for (let i = 0; i < message.length; i ++) { %>
+        <div class="card-body mb-2" style="background-color: #96a480; box-shadow: 1px 1px 1px black;">
+            <h5 class="card-title"><%= message[i]["element_texts"][0].text %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= type %></h6>
+            <a class="btn btn-primary" href="/entry/<%= type %>/<%=message[i].id%>">View Item</a>
+        </div>
+    <% } %>
+
+</div>
+<div class="container-fluid mt-2">
+
+    <% if (pageNumber > 1) { %>
+
+    <a class="btn btn-primary" href="?page=<%= Number(pageNumber - 1) %>">Page <%= Number(pageNumber - 1) %></a>
+    
+    <% } else {%>
+    
+        <a class="btn btn-primary disabled" href="">No previous</a>
+    
+    <% } %>
+    
+    <% if (!(message.length < 10)) {%>
+    <a class="btn btn-primary" href="?page=<%= Number(pageNumber + 1) %>">Page <%= Number(pageNumber + 1) %></a>
+    <% } else { %>
+    
+        <a class="btn btn-primary disabled" href="">No next</a>
+    
+    <% } %>
+</div>

@@ -1,0 +1,19 @@
+<%- include("partials/header") -%>
+
+<div class="container-fluid" style="display: flex; justify-content: center; align-items: center; margin-top: 1%;">
+
+    <div class="container" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <img src="<%= photoData[0].file_urls['thumbnail'] %>" alt="Photo" srcset="">
+        <p><%= data.id %></p>
+        <p><%= data["element_texts"][0].text %></p>
+        <p>Date Added: <%= data.added %></p>
+        <p>Date Modified: <%= data.modified %></p>
+    
+        <a class="btn btn-primary" href="https://uogguafak.omeka.net/items/show/<%= data.id %>">View Item</a>
+        <a class="btn btn-primary" href="<%= photoData[0].file_urls['original'] %>">View Resource</a>
+    </div>
+
+
+</div>
+
+<%- include("partials/footer") -%>
