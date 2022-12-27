@@ -1,0 +1,14 @@
+<%- include("partials/header") -%>
+
+<div class="container-fluid">
+
+    <p><%= data.id %></p>
+    <p><%= data.title %></p>
+    <p>Date Added: <%= data.added %></p>
+    <p>Date Modified: <%= data.modified %></p>
+
+    <a class="btn btn-primary" href="https://uogguafak.omeka.net/collections/show/<%= data.id %>">View Collection</a>
+
+</div>
+
+<%- include("partials/footer") -%>

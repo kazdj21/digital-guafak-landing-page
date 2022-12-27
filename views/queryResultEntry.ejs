@@ -2,7 +2,13 @@
 
     <% for (let i = 0; i < message.length; i ++) { %>
         <div class="card-body mb-2" style="background-color: #96a480; box-shadow: 1px 1px 1px black;">
-            <h5 class="card-title"><%= message[i]["element_texts"][0].text %></h5>
+
+            <% if (type === "Items" || type === "Collections") { %>
+                <h5 class="card-title"><%= message[i]["element_texts"][0].text %></h5>
+            <% } else {%>
+                <h5 class="card-title"><%= message[i].title %></h5>       
+            <% } %>
+
             <h6 class="card-subtitle mb-2 text-muted"><%= type %></h6>
             <a class="btn btn-primary" href="/entry/<%= type %>/<%=message[i].id%>">View Item</a>
         </div>

@@ -104,7 +104,7 @@ const fetchCollection = function(req, res, next) {
 const fetchExhibit = function(req, res, next) {
 
     const id = DOMPurify.sanitize(req.params.id);
-    const query = `https://uogguafak.omeka.net/api/collections/${id}`;
+    const query = `https://uogguafak.omeka.net/api/exhibits/${id}`;
 
     fetch(query, (data) => {
 
@@ -262,6 +262,12 @@ router.get("/entry/collections/:id", fetchCollection, function(req, res) {
 router.get("/entry/exhibits/:id", fetchExhibit, function(req, res) {
 
     res.status(400).send("Fail");
+
+});
+
+router.get("/about", function(req, res) {
+
+    res.render("aboutUs");
 
 })
 
