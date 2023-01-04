@@ -1,14 +1,18 @@
 <%- include("partials/header") -%>
 
-<div class="container-fluid">
+<div class="container-fluid" style="display: flex; justify-content: center; align-items: center; margin-top: 1%;">
 
-    <p><%= data.id %></p>
-    <p><%= data["element_texts"][0].text %></p>
-    <p>Date Added: <%= data.added %></p>
-    <p>Date Modified: <%= data.modified %></p>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
 
-    <a class="btn btn-primary" href="https://uogguafak.omeka.net/collections/show/<%= data.id %>">View Collection</a>
+        <p><%= data.id %></p>
+        <p><%= data["element_texts"][0].text %></p>
+        <p>Date Added: <%= data.added %></p>
+        <p>Date Modified: <%= data.modified %></p>
+    
+        <a class="btn btn-primary" href="https://uogguafak.omeka.net/collections/show/<%= data.id %>">View Collection</a>
+    </div>
 
 </div>
+
 
 <%- include("partials/footer") -%>

@@ -10,28 +10,65 @@
             <% } %>
 
             <h6 class="card-subtitle mb-2 text-muted"><%= type %></h6>
-            <a class="btn btn-primary" href="/entry/<%= type %>/<%=message[i].id%>">View Item</a>
+            <a class="btn btn-primary" href="/entry/<%= type.toLowerCase() %>/<%=message[i].id%>">View Item</a>
         </div>
     <% } %>
 
 </div>
-<div class="container-fluid mt-2">
+<% if (message.length >= 1) { %>
+    <div class="container-fluid mt-2" style="display: flex; justify-content: center; align-items: center;">
 
-    <% if (pageNumber > 1) { %>
+        <div class="container-fluid" style="display: flex; justify-content: center; align-items: center;">
+    
+                <% if (pageNumber > 1) { %>
+    
+                <a class="btn btn-primary" href="?&page=<%= Number(pageNumber - 1) %>">Page <%= Number(pageNumber - 1) %></a>
+                
+                <% } else {%>
+                
+                    <a class="btn btn-primary disabled" href="">Previous</a>
+                
+                <% } %>
+    
+                    <div class="px-5">
+                        <p style="text-align: center;">You are on page <%= Number(pageNumber) %></p>
+                        <p style="text-align: center;">Jump to:</p>
+                        <input type="number" class="form-control" id="changePage"></input>
+                        <input type="button" class="btn btn-primary" onclick="jumpTo(document.getElementById('changePage').value)" value="Jump"></input>
+                        
+                    </div>
+                
+                <% if (!(message.length < 10)) {%>
+    
+                <a class="btn btn-primary" href="?&page=<%= Number(pageNumber + 1) %>">Page <%= Number(pageNumber + 1) %></a>
+    
+                <% } else { %>
+                
+                    <a class="btn btn-primary disabled" href="">Next</a>
+                
+                <% } %>
+    
+        </div>
+    
+    </div>
+    <script>
+        function jumpTo(page) {
+            
+            const pageParamValue = new URLSearchParams(window.location.search).get('page');
 
-    <a class="btn btn-primary" href="?page=<%= Number(pageNumber - 1) %>">Page <%= Number(pageNumber - 1) %></a>
-    
-    <% } else {%>
-    
-        <a class="btn btn-primary disabled" href="">No previous</a>
-    
-    <% } %>
-    
-    <% if (!(message.length < 10)) {%>
-    <a class="btn btn-primary" href="?page=<%= Number(pageNumber + 1) %>">Page <%= Number(pageNumber + 1) %></a>
+            if (pageParamValue) {
+
+                window.location.href = window.location.href.replace(pageParamValue, String(page)); 
+
+            } else {
+
+                window.location.href = `${window.location.href}?page=${String(page)}`;
+
+            }    
+        }
+    </script>
     <% } else { %>
-    
-        <a class="btn btn-primary disabled" href="">No next</a>
-    
+
+        <h1>No results for your search.</h1>
+
     <% } %>
-</div>

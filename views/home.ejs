@@ -62,13 +62,13 @@
         <div class="container-fluid" id="contact-us-box">
             
             <div class="row container" id="contact-us-header">
-                <div class="container-fluid">
+                <div class="container-fluid" style="display: flex; justify-content: left;">
                     <h3 style="color: white;">Contact Us</h3>
                 </div>
             </div>
 
             <div class="row container-fluid" >
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="padding-top: 5%; padding-bottom: 5%; border-right: 2px solid black;">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12" class="contact-info-element" id="contacts-list">
                     <div class="row">
                         <h4 style="color: white;">Ryan Shook</h4>
                         <p style="color: white;"><i class="fa-solid fa-envelope" style="color: white;"></i> shookr@triton.uog.edu</p>
@@ -80,11 +80,9 @@
                         <p style="color: white;"><i class="fa-solid fa-phone" style="color: white;"></i> (671) 735-2333</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="display: flex; justify-content: center; align-items: center;  padding-top: 5%; padding-bottom: 5%; ">
-                    <div class="container-fluid">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12" class="contact-info-element" id="marc-directions">
                         <h6 style="color: white;">Micronesian Area Research Center</h6>
-                        <a href="https://www.google.com/maps/place/Micronesian+Area+Research+Center/@13.4331917,144.8022696,157m/data=!3m1!1e3!4m5!3m4!1s0x671f9d994e4ffca7:0x465ddd6e1e68b1a1!8m2!3d13.4332765!4d144.8024033"><img src="./public/marc_directions.jpg" alt="Directions to MARC." style="height: 100%; width: 100%;"></a>
-                    </div>
+                        <a href="https://www.google.com/maps/place/Micronesian+Area+Research+Center/@13.4331917,144.8022696,157m/data=!3m1!1e3!4m5!3m4!1s0x671f9d994e4ffca7:0x465ddd6e1e68b1a1!8m2!3d13.4332765!4d144.8024033"><img class="marc-img" src="./public/marc_directions.jpg" alt="Directions to MARC."></a>
                 </div>
     
             </div>
@@ -94,5 +92,37 @@
     </div>
 
     <!-- Contact Us-->
+
+    <!-- Contact Us Responsive -->
+
+    <div class="container-fluid" id="contact-us-responsive">
+
+        <div class="row" style="padding-bottom: 10px;">
+            <h3 style="color: white; text-align: center;">Contact Us</h3>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;">
+            <h5 style="color: white;">Ryan Shook</h5>
+            <p style="color: white;"><i class="fa-solid fa-envelope" style="color: white;"></i> shookr@triton.uog.edu</p>
+            <p style="color: white;"><i class="fa-solid fa-phone" style="color: white;"></i> (671) 735-2342</p>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;">
+            <h5 style="color: white;">Monique Storie</h5>
+            <p style="color: white;"><i class="fa-solid fa-envelope" style="color: white;"></i> mstorie@triton.uog.edu</p>
+            <p style="color: white;"><i class="fa-solid fa-phone" style="color: white;"></i> (671) 735-2333</p>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;">
+            <h6 style="color: white;">Micronesian Area Research Center</h6>
+            <div style="display: flex; justify-content: center; align-items: center; margin: auto;">
+                <a href="https://www.google.com/maps/place/Micronesian+Area+Research+Center/@13.4331917,144.8022696,157m/data=!3m1!1e3!4m5!3m4!1s0x671f9d994e4ffca7:0x465ddd6e1e68b1a1!8m2!3d13.4332765!4d144.8024033"><img class="marc-img" src="./public/marc_directions.jpg" alt="Directions to MARC."></a>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <!-- Contact Us Responsive -->
 
 <%- include("partials/footer") -%>
