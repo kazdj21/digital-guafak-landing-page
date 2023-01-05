@@ -139,7 +139,7 @@ const checkParams = function(req, res, next) {
                         const entry = {id: response.data[i].id, 
                                 file: response.data[i].files.url,
                                 url: response.data[i].url, 
-                                title: response.data[i]["element_texts"][0].text};
+                                element_texts: response.data[i]["element_texts"]};
                                 
                         results.push(entry);
                         
@@ -147,7 +147,7 @@ const checkParams = function(req, res, next) {
     
                 }
 
-                console.log(results.length);
+                console.log(results);
                 res.status(200).render("search", {searchQuery: searchQuery, message: results, paramsExist: true, pageNumber: Number(req.query.page) || ""});
 
             })

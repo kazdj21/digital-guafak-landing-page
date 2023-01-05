@@ -2,7 +2,20 @@
 
     <% for (let i = 0; i < message.length; i ++) { %>
         <div class="card-body mb-2" style="background-color: #96a480; box-shadow: 1px 1px 1px black;">
-            <h5 class="card-title"><%=message[i].title%></h5>
+
+            <% if (message[i].hasOwnProperty("element_texts")) {%>
+                <% for (let j = 0; j < message[i]["element_texts"].length; j++) { %>
+                    <% if (message[i]["element_texts"][j].hasOwnProperty("element")) {%>
+                        <% if (message[i]["element_texts"][j]["element"].hasOwnProperty("name")) { %>
+                            <% if (String(message[i]["element_texts"][j]["element"].name.toLowerCase()) === "title") {%>
+                                <h5 class="card-title"><%= message[i]["element_texts"][j].text %></h5>
+                            <% } %>
+                        <% } %>
+                    <% }%>
+                <% } %>
+            <% } %>
+
+            <!-- <h5 class="card-title"><%=message[i].title%></h5> -->
             <h6 class="card-subtitle mb-2 text-muted">Items</h6>
             <a class="btn btn-primary" href="/entry/items/<%=message[i].id%>">View Item</a>
         </div>
