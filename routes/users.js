@@ -25,7 +25,6 @@ const search = function(query, page, callback) {
        
     }).catch((e) => {
 
-        console.log(e);
         return callback(null);
 
     });
@@ -40,7 +39,6 @@ const fetch = function(query, callback) {
 
     }).catch((e) => {
 
-        console.log(e);
         return callback(null);
 
     })
@@ -69,7 +67,7 @@ const fetchItem = function(req, res, next) {
 
                 else {
 
-                    res.render("entry", {data: data, photoData: ""})
+                    res.render("entry", {data: data, photoData: ""});
 
                 }
 
@@ -91,11 +89,10 @@ const fetchCollection = function(req, res, next) {
 
     const id = DOMPurify.sanitize(req.params.id);
     const query = `https://uogguafak.omeka.net/api/collections/${id}`
-    // const photoQuery = `https://uogguafak.omeka.net/api/files?item=${id}`
 
     fetch(query, (data) => {
 
-        res.render("entryCollections", {data: data})
+        res.render("entryCollections", {data: data});
 
     })
 
@@ -127,7 +124,6 @@ const checkParams = function(req, res, next) {
 
                 let results = [];
 
-    
                 for (i in response.data) {
                         
                     if (response.data[i]["element_texts"][0].text === undefined) {
@@ -147,7 +143,6 @@ const checkParams = function(req, res, next) {
     
                 }
 
-                console.log(results);
                 res.status(200).render("search", {searchQuery: searchQuery, message: results, paramsExist: true, pageNumber: Number(req.query.page) || ""});
 
             })
@@ -155,7 +150,7 @@ const checkParams = function(req, res, next) {
 
         } else {
 
-            res.status(200).render("search", {searchQuery: "", message: "Please make sure to enter a search.", paramsExist: true, pageNumber: ""})
+            res.status(200).render("search", {searchQuery: "", message: "Please make sure to enter a search.", paramsExist: true, pageNumber: ""});
 
         }
 
@@ -182,7 +177,7 @@ router.get("/items", function(req, res) {
 
         fetch(`https://uogguafak.omeka.net/api/items?page=${req.query.page}&per_page=10`, function(data) {
         
-        res.status(200).render("items", {message: data, type: "Items", pageNumber: Number(req.query.page)})
+        res.status(200).render("items", {message: data, type: "Items", pageNumber: Number(req.query.page)});
 
         });
 
@@ -190,7 +185,7 @@ router.get("/items", function(req, res) {
 
         fetch("https://uogguafak.omeka.net/api/items?page=1&per_page=10", function(data) {
         
-        res.status(200).render("items", {message: data, type: "Items", pageNumber: Number(1)})
+        res.status(200).render("items", {message: data, type: "Items", pageNumber: Number(1)});
 
         });
 
@@ -203,20 +198,19 @@ router.get("/collections", function(req, res) {
 
     if (req.query.page) {
 
-    fetch(`https://uogguafak.omeka.net/api/collections?page=${req.query.page}&per_page=10`, function(data) {
-        
-        res.status(200).render("collections", {message: data, type: "Collections", pageNumber: Number(req.query.page)})
+        fetch(`https://uogguafak.omeka.net/api/collections?page=${req.query.page}&per_page=10`, function(data) {
+            
+            res.status(200).render("collections", {message: data, type: "Collections", pageNumber: Number(req.query.page)});
 
-    })
+        })
 
     } else {
 
         fetch('https://uogguafak.omeka.net/api/collections?page=1&per_page=10', function(data) {
         
-        res.status(200).render("collections", {message: data, type: "Collections", pageNumber: Number(1)})
+        res.status(200).render("collections", {message: data, type: "Collections", pageNumber: Number(1)});
 
-    })
-
+        })
 
     }
 
@@ -249,19 +243,19 @@ router.get("/exhibits", function(req, res) {
 
 router.get("/entry/items/:id", fetchItem, function(req, res) {
 
-    res.status(400).send("Fail")
+    res.status(400).render("error", {error: "An error has occurred, please try again later."});
 
 });
 
 router.get("/entry/collections/:id", fetchCollection, function(req, res) {
 
-    res.status(400).send("Fail");
+    res.status(400).render("error", {error: "An error has occurred, please try again later."});
 
 });
 
 router.get("/entry/exhibits/:id", fetchExhibit, function(req, res) {
 
-    res.status(400).send("Fail");
+    res.status(400).render("error", {error: "An error has occurred, please try again later."});
 
 });
 
@@ -275,11 +269,7 @@ router.post("/search", function(req, res) {
 
     const search = DOMPurify.sanitize(req.body.search);
 
-    console.log(search);
-
-
     res.redirect(`/search?search=${search}&page=1`);
-
 
 });
 
