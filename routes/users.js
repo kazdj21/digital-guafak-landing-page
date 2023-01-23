@@ -2,6 +2,7 @@ const axios = require("axios");
 const express = require("express");
 const createDOMPurify = require("dompurify");
 const { JSDOM } = require("jsdom");
+const path = require("path");
 
 const router = express.Router();
 const window = new JSDOM('').window;
