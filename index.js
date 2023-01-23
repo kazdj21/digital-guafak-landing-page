@@ -6,7 +6,7 @@ const users = require("./routes/users");
 const app = express();
 
 
-app.use("/public", express.static(path.join(__dirname, "/public")))
+app.use("/public", express.static(path.join(__dirname, "/public/")))
 app.use(users);
 
 
