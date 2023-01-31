@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
 
 app.get("*", function(req, res) {
 
-    res.status(404).json({error: "404 not found"});
+    res.status(404).render("404");
 
 })
 
