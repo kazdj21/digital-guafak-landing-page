@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use("/public", express.static(path.join(__dirname, "/public/")))
+app.use("/service-worker.js", express.static(path.join(__dirname, "/service-worker.js")))
 app.use(users);
 
 
